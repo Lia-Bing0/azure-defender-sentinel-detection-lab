@@ -175,8 +175,13 @@ terraform destroy
 - Simple threshold rules are effective for demonstrating detection pipelines, but need tuning to reduce false positives.
 - Conditional Access design requires a security-vs-availability balance, including explicit break-glass exceptions.
 
-## Next Phase
+## Next Phase – Endpoint Detection, Correlation, and Automation
 
-- Add Sentinel playbook automation for incident enrichment/notification.
-- Add GeoIP enrichment for suspicious sign-in sources.
-- Ingest and correlate Defender for Cloud alerts in Sentinel analytics and incident workflows.
+Planned expansion of this lab includes:
+
+- Onboarding the Windows VM to Microsoft Defender for Endpoint (EDR)
+- Integrating Defender for Endpoint alerts into Microsoft Sentinel
+- Correlating authentication telemetry (Event ID 4625) with endpoint behavioral detections
+- Ingesting Microsoft Defender for Cloud alerts into Sentinel for broader signal visibility
+- Implementing Sentinel playbooks for automated enrichment and notification
+- Adding GeoIP enrichment to identify suspicious sign-in source locations
