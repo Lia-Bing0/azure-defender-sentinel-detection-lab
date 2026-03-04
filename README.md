@@ -101,7 +101,7 @@ SecurityEvent
 
 ## Detection Engineering
 
-- Detection objective: Detection objective: identify potential RDP brute-force behavior through temporal aggregation of failed logon events (Event ID 4625).
+- Detection objective: identify potential RDP brute-force behavior through temporal aggregation of failed logon events (Event ID 4625).
 - Scheduled analytics rule uses Event ID `4625` with threshold `>= 3` failures in `5m`.
 - Rule configuration:
 	- Type: Scheduled analytics rule

@@ -28,7 +28,7 @@ flowchart TD
     CA --> VM[Windows VM <LiaBing0>]
     VM --> AMA[Azure Monitor Agent]
     AMA --> DCR[Data Collection Rule]
-    DCR --> LAW[Log Analytics <WORKSPACE_NAME>]
+    DCR --> LAW[Log Analytics law-zt-sentinel-lab-2jke2]
     LAW --> SE[SecurityEvent Table]
     SE --> AR[Sentinel Analytics Rule]
     AR --> INC[Sentinel Incident]
