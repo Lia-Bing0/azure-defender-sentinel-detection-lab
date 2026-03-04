@@ -175,7 +175,7 @@ terraform destroy
 - Simple threshold rules are effective for demonstrating detection pipelines, but need tuning to reduce false positives.
 - Conditional Access design requires a security-vs-availability balance, including explicit break-glass exceptions.
 
-## Next Phase – Endpoint Detection, Correlation, and Automation
+## Next Phase - Endpoint Detection, Correlation, and Automation
 
 Planned expansion of this lab includes:
 
