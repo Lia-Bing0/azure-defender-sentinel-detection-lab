@@ -25,7 +25,7 @@ This lab deploys a scoped Azure environment with Terraform and routes Windows se
 ```mermaid
 flowchart TD
     U[User Access Attempt] --> CA[Conditional Access MFA]
-    CA --> VM[Windows VM <LiaBing0>]
+    CA --> VM[Windows VM LiaBing0]
     VM --> AMA[Azure Monitor Agent]
     AMA --> DCR[Data Collection Rule]
     DCR --> LAW[Log Analytics law-zt-sentinel-lab-2jke2]
