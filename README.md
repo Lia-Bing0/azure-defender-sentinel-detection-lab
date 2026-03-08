@@ -66,7 +66,7 @@ SentinelRule --> Incident[High Severity Sentinel Incident]
 	- Virtual Network and subnet
 	- Network Security Group
 	- Public IP
-	- Windows Virtual Machine (LiaBing0)
+	- Windows Virtual Machine (sentinel-lab-vm01)
 	- Log Analytics Workspace (law-zt-sentinel-lab-2jke2`)
 - Security monitoring stack:
 	- Microsoft Sentinel enabled on the Log Analytics Workspace
@@ -89,7 +89,7 @@ SentinelRule --> Incident[High Severity Sentinel Incident]
 
 ## Telemetry and Ingestion
 
-- Windows Security Event logs are collected through AMA using a DCR association to `LiaBing0`.
+- Windows Security Event logs are collected through AMA using a DCR association to `sentinel-lab-vm01`.
 - Ingestion validation query:
 
 ```kql

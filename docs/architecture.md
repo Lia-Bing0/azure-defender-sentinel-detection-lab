@@ -6,7 +6,7 @@ This lab deploys a scoped Azure environment with Terraform and routes Windows se
 
 - `rg-zt-sentinel-lab-2jke2`: logical container for all lab assets.
 - Network layer: VNet/subnet + NSG + Public IP to host and manage the test VM.
-- `LiaBing0`: Windows endpoint used to generate authentication telemetry.
+- `sentinel-lab-vm01`: Windows endpoint used to generate authentication telemetry.
 - `law-zt-sentinel-lab-2jke2`: Log Analytics Workspace storing collected logs.
 - AMA + DCR: collection pipeline for Windows Security Events.
 - Microsoft Sentinel: analytics, alerting, and incident management.
@@ -14,7 +14,7 @@ This lab deploys a scoped Azure environment with Terraform and routes Windows se
 ## Data Flow
 
 1. User sign-in is evaluated by Conditional Access MFA policy.
-2. Activity on `LiaBing0` generates Windows Security Events (including Event ID 4625).
+2. Activity on `sentinel-lab-vm01` generates Windows Security Events (including Event ID 4625).
 3. AMA collects events according to DCR configuration.
 4. Events are ingested into `law-zt-sentinel-lab-2jke2` (`SecurityEvent` table).
 5. Sentinel scheduled analytics rule evaluates query conditions.
@@ -25,7 +25,7 @@ This lab deploys a scoped Azure environment with Terraform and routes Windows se
 ```mermaid
 flowchart TD
     U[User Access Attempt] --> CA[Conditional Access MFA]
-    CA --> VM[Windows VM LiaBing0]
+    CA --> VM[Windows VM sentinel-lab-vm01]
     VM --> AMA[Azure Monitor Agent]
     AMA --> DCR[Data Collection Rule]
     DCR --> LAW[Log Analytics law-zt-sentinel-lab-2jke2]

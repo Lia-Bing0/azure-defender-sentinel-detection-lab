@@ -2,7 +2,7 @@ locals {
   name_prefix = "${var.project_name}-${random_string.suffix.result}"
   tags = {
     project = var.project_name
-    owner   = "lia"
+    owner   = "lab"
   }
 }
 
@@ -100,7 +100,7 @@ resource "azurerm_network_interface_security_group_association" "nic_nsg" {
 
 resource "azurerm_windows_virtual_machine" "vm" {
   name                = "vm-${local.name_prefix}"
-  computer_name       = "LiaBing0"
+  computer_name       = "sentinel-lab-vm01"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   size                = var.vm_size 
