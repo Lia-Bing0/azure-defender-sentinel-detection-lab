@@ -27,7 +27,8 @@ Exclusions are intentionally minimal to preserve recovery capability.
 
 ## Session & Risk Controls
 
-- Default session controls retained unless testing adaptive risk-based policies.
+- Conditional Access policy was scoped to the Azure Portal cloud application
+and applied to the lab administrative user account used to access the VM.
 - Risk-based Conditional Access not enabled in this lab iteration.
 
 ## Validation Workflow

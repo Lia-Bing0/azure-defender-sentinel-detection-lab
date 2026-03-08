@@ -20,14 +20,16 @@ SecurityEvent
 | order by TimeGenerated desc
 ```
 
-### 3 Scheduled analytics rule query (`>= 3` failures per `5m`)
+### 3 ### Scheduled Analytics Rule Query
+
+The rule runs every 5 minutes with a 5-minute lookback window configured in Sentinel.
+Because the time scope is handled by the rule configuration, the KQL query focuses only
+on aggregating failed logon events (Event ID 4625).
 
 ```kql
 SecurityEvent
 | where EventID == 4625
-| where TimeGenerated >= ago(5m)
-| summarize FailedLogons = count(), StartTime=min(TimeGenerated), EndTime=max(TimeGenerated)
-    by Account = tostring(TargetUserName), Host = tostring(Computer)
+| summarize FailedLogons = count() by Account = tostring(TargetUserName), Host = tostring(Computer)
 | where FailedLogons >= 3
 ```
 

@@ -128,6 +128,7 @@ The following artifacts demonstrate successful infrastructure deployment, teleme
 - [Resource group deployment](docs/images/01-resource-group-deployment.png)
 - [Sentinel connected to workspace](docs/images/02-sentinel-connected.png)
 - [DCR created and associated](docs/images/03-dcr-configured.png)
+- [DCR associated with VM](docs/images/04-dcr-associated-vm.png)
 - [Log Analytics SecurityEvent ingestion validation](docs/images/05-securityevent-ingestion.png)
 - [Event ID 4625 failed logon evidence](docs/images/06-eventid-4625-evidence.png)
 - [Incident created in Sentinel](docs/images/07-incident-created.png)
