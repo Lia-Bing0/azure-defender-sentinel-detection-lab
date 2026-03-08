@@ -67,7 +67,7 @@ SentinelRule --> Incident[High Severity Sentinel Incident]
 	- Network Security Group
 	- Public IP
 	- Windows Virtual Machine (sentinel-lab-vm01)
-	- Log Analytics Workspace (law-zt-sentinel-lab-2jke2`)
+	- Log Analytics Workspace (law-zt-sentinel-lab-2jke2)
 - Security monitoring stack:
 	- Microsoft Sentinel enabled on the Log Analytics Workspace
 	- Azure Monitor Agent (AMA) on the Windows VM
@@ -102,25 +102,28 @@ SecurityEvent
 ## Detection Engineering
 
 - Detection objective: identify potential RDP brute-force behavior through temporal aggregation of failed logon events (Event ID 4625).
-- Scheduled analytics rule uses Event ID `4625` with threshold `>= 3` failures in `5m`.
+- Scheduled analytics rule uses Event ID 4625 with a demonstration threshold of >= 3 failures within 5 minutes to reliably trigger an alert during lab testing. In production environments, this threshold would typically be increased and combined with additional context (source IP frequency, geographic anomalies, or account lockout telemetry) to reduce alert fatigue.
+  
 - Rule configuration:
+  
 	- Type: Scheduled analytics rule
 	- Frequency: every 5 minutes
 	- Lookback: last 5 minutes
 	- Severity: High
 	- MITRE ATT&CK: `T1110 Brute Force` (Credential Access)
 
-Scheduled Analytics Rule Query:
+### Scheduled Analytics Rule Query
 
 ```kql
 SecurityEvent
 | where EventID == 4625
-| where TimeGenerated >= ago(5m)
 | summarize FailedLogons = count() by Account = tostring(TargetUserName), Host = tostring(Computer)
 | where FailedLogons >= 3
 ```
 
 ## Evidence
+
+The following artifacts demonstrate successful infrastructure deployment, telemetry ingestion, detection rule execution, and Sentinel incident generation.
 
 - [Resource group deployment](docs/images/01-resource-group-deployment.png)
 - [Sentinel connected to workspace](docs/images/02-sentinel-connected.png)
